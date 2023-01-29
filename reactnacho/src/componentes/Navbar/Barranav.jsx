@@ -27,7 +27,7 @@ function Barra() {
             </NavDropdown> */}
           </Nav>
           <Nav>
-            <Cartwidget/>
+          <Nav.Link href="#features"><Cartwidget/></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

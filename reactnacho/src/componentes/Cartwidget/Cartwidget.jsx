@@ -4,4 +4,5 @@ const Cartwidget = () => {
   )
 }
 
-export default Cartwidget
+
+export default Cartwidget;
