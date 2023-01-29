@@ -1,0 +1,13 @@
+1- npm create vite@latest nombre
+2- cd (moverse) nombre
+3- npm install o npm i
+4- npm run dev
+
+boostrap
+1- npm install react-bootstrap bootstrap
+
+1- rfce crea una fubncion de react
+2- rafc crea una arrow
+3- rcc crea una clase
+
+
