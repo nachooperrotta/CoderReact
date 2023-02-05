@@ -5,6 +5,8 @@
 
 boostrap
 1- npm install react-bootstrap bootstrap
+2- npm i react-router-dom
+
 
 1- rfce crea una fubncion de react
 2- rafc crea una arrow
