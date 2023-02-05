@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Cartwidget from '../Cartwidget/Cartwidget';
 
-function Barra() {
+function Barranav() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
@@ -35,7 +35,7 @@ function Barra() {
   );
 }
 
-export default Barra;
+export default Barranav;
 
 
 
