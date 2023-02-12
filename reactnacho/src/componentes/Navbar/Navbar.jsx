@@ -4,16 +4,16 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Cartwidget from '../Cartwidget/Cartwidget';
 
-function Barranav() {
+function Barra() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="#home">OTTA</Navbar.Brand>
+        <Navbar.Brand href="/">OTTA</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Yerbas</Nav.Link>
-            <Nav.Link href="#pricing">Mates</Nav.Link>
+            <Nav.Link href="/categoria/yerbas">Yerbas</Nav.Link>
+            <Nav.Link href="/categoria/mates">Mates</Nav.Link>
             {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -27,7 +27,7 @@ function Barranav() {
             </NavDropdown> */}
           </Nav>
           <Nav>
-          <Nav.Link href="#features"><Cartwidget/></Nav.Link>
+          <Nav.Link href="/cart"><Cartwidget/></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -35,7 +35,7 @@ function Barranav() {
   );
 }
 
-export default Barranav;
+export default Barra;
 
 
 

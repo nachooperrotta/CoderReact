@@ -16,6 +16,7 @@ function ItemListContainer () {
       .then (err => consolge.log(err))
       .finally (() => setloading (false))
     }, [])
+    
     return (
     <div div className ="containerItems">
       { loading ? <h2 className="loading">Cargando...</h2>
