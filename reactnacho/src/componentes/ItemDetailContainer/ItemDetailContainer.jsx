@@ -1,28 +1,29 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getFetch } from "../utils/gFetch"
+import { gFetch } from "../utils/gFetch"
 import ItemDetail from "../ItemDetail/ItemDetail"
 
 
-function ItemDetailContainer () {
-    const [producto, setProducto] = useState ([])
-    const [loading, setloading] = useState (true)
-    const {detalleId} = useParams ()
+const ItemDetailContainer = () => {
+    const [producto, setProducto] = useState ({})
+    const [loading, setLoading] = useState (true)
+    const {idProducto} = useParams ()
 
     useEffect (() => {
-        getFetch
-        .then (resp => setProducto (resp.find (prod => prod.id === detalleId)))
-        .finally (() => setloading (false))
+        gFetch (idProducto)
+        .then (resp => setProducto (resp))
+        .catch (error => setProducto (error))
+        .finally (() => setLoading (false))
     }, [])
 
     return (
-        <>
+
+        <div>
             { loading ? <h2 className="loading">Cargando...</h2>
             :
             <ItemDetail producto = {producto} />
-
-            }
-        </>
+        }
+        </div>
   )
 }
 

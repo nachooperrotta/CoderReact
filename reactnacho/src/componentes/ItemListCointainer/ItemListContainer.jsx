@@ -1,27 +1,39 @@
 import { useEffect } from "react"
 import { useState } from "react"
+import { useParams } from "react-router-dom"
 import ItemList from "../ItemList/ItemList"
-import { getFetch } from "../utils/gFetch"
+import { gFetch } from "../utils/gFetch"
 
-function ItemListContainer () {
-  const [producto, setProducto] = useState ([])
-  const [loading, setloading] = useState (true)
+export const ItemListContainer = ({}) => {
+  const [productos, setProductos] = useState ([])
+  const [loading, setLoading] = useState (true)
+
+  const {idCategoria} = useParams()
 
     useEffect(() => {
-      getFetch
-      .then ((respuesta) => {
-        return respuesta
-      })
-      .then ((resp) => setProducto (resp))
-      .then (err => consolge.log(err))
-      .finally (() => setloading (false))
-    }, [])
+      if (idCategoria) {
+        gFetch ()
+          .then (res => {
+            setProductos (res.filter(producto => producto.categoria === idCategoria))
+          })
+          .catch (error => console.log(error))
+          .finally (() => setLoading (false))
+      } else {
+        gFetch ()
+          .then (res => {
+            setProductos(res)
+          })
+          .catch (error => console.log(error))
+          .finally (() => setLoading (false))
+      }
+      
+    }, [idCategoria])
     
     return (
     <div div className ="containerItems">
       { loading ? <h2 className="loading">Cargando...</h2>
       :
-      <ItemList producto = {producto}/>
+      <ItemList productos = {productos}/>
       }
         
         

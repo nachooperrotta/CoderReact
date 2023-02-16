@@ -7,21 +7,26 @@ import Cartwidget from './componentes/Cartwidget/Cartwidget';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+import { CartContextProvider } from './context/CartContext';
 
 
 function App() {
 
   return (
+    
     <BrowserRouter>
-      <div className="App">
+      <CartContextProvider>
         <Barra/>
-        <Routes>
-          <Route path='/' element={<ItemListContainer/>}/>
-          <Route path='/categoria/:idCategoria' element={<ItemListContainer/>}/>
-          <Route path='/detalle/:detalleId' element={<ItemDetailContainer/>}/>
-          <Route path='/Cartwidget' element={<Cartwidget/>}/>
-        </Routes>
-      </div>
+        <div className="App">
+          <Routes>
+            <Route path='/' element={<ItemListContainer/>}/>
+            <Route path='/categoria/:idCategoria' element={<ItemListContainer/>}/>
+
+            <Route path='/detalle/:idProducto' element={<ItemDetailContainer/>}/>
+            <Route path='/Cartwidget' element={<Cartwidget/>}/>
+          </Routes>
+        </div>
+      </CartContextProvider>
     </BrowserRouter>
   );
 }
