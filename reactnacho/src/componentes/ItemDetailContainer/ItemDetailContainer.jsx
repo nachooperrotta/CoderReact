@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { gFetch } from "../utils/gFetch"
+import { doc, getDoc, getFirestore } from "firebase/firestore"
+
 import ItemDetail from "../ItemDetail/ItemDetail"
 
 
@@ -10,18 +11,29 @@ const ItemDetailContainer = () => {
     const {idProducto} = useParams ()
 
     useEffect (() => {
-        gFetch (idProducto)
-        .then (resp => setProducto (resp))
-        .catch (error => setProducto (error))
+        const db = getFirestore()
+        const query = doc(db, 'Productos', idProducto)
+        getDoc(query)
+        .then(resp=> setProducto( { id: resp.id, ...resp.data() } ))
+        .catch (error => console.log(error))
         .finally (() => setLoading (false))
-    }, [])
+    },[])
 
     return (
 
         <div>
             { loading ? <h2 className="loading">Cargando...</h2>
             :
-            <ItemDetail producto = {producto} />
+            <div style={{
+            width: '90%',
+	        maxWidth: '1500px',
+	        overflow: 'hidden',
+	        margin: 'auto',
+	        padding: '4% 0 0 6%',
+            textAlign:'center'}}>
+                
+                <ItemDetail producto = {producto} />
+            </div>
         }
         </div>
   )

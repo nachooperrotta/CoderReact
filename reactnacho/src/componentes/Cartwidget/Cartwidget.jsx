@@ -1,6 +1,12 @@
+import { useCartContext } from "../../context/CartContext";
+
 const Cartwidget = () => {
+  const {TotalQuantity} = useCartContext()
+
   return (
-    <div>🛒{0} </div>
+    <>
+    <div>{TotalQuantity() !== 0 && TotalQuantity()} 🛒 </div>
+    </>
   )
 }
 

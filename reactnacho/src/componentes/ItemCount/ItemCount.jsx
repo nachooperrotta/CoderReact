@@ -1,5 +1,8 @@
 import { useState } from "react"
 
+import Button from 'react-bootstrap/Button';
+
+
 const ItemCount = ({initial = 1, stock = producto.stock, onAdd}) => {
     const [ count, setCount] = useState(initial)
 
@@ -19,29 +22,23 @@ const ItemCount = ({initial = 1, stock = producto.stock, onAdd}) => {
     }
 
   return (
-    <div className="card mt-5 w-50" >
-        <div className="card-body row">
+    <div className="card mt-2 w-50" >
+        <div className="card-body row" style={{display:'flex'}}>
+            <div className="col">
+                <Button variant="outline-dark" onClick={handleRestar}>-</Button>
             </div>
             <div className="col">
-            <button className="btn btn-outline-dark w-50" onClick={handleRestar }> - </button>
-
+                <center>
+                    <label>{count}</label>
+                </center> 
             </div>
             <div className="col">
-            <center>
-            <label>{count}</label>
-
-            </center> 
- 
-            <div className="col">
-            <button className="btn btn-outline-dark w-50" onClick={handleSuma}> + </button>
-
+                <Button variant="outline-dark" onClick={handleSuma}>+</Button>
             </div>
         </div>
-        <div className="card-footer">
-            <button className="btn btn-outline-dark w-50" onClick={handleOnAdd}>Agregar al carrito</button>
+        <div>
+            <Button variant="outline-dark" onClick={handleOnAdd}>Agregar al carrito</Button>
         </div>
-
-
     </div>
   )
 }

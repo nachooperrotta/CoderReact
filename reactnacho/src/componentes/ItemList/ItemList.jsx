@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Item from '../Item/Item'
 
-const ItemList = ({productos}) => {
+const ItemList = memo (({productos}) => {
 
-  
-  return (
-    productos.map(producto => <Item key = {producto.id} producto = {producto} />)
-  )
-}
+    return (
+      productos.map(producto => <Item key = {producto.id} producto = {producto} />)
+    )
+  }
+
+)
 
 export default ItemList
